@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,11 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatosDAL\ConexionDB.cs" />
-    <Compile Include="DatosDAL\PlanchaDAL.cs" />
-    <Compile Include="DatosDAL\ReportesDAL.cs" />
-    <Compile Include="DatosDAL\UsuarioDAL.cs" />
-    <Compile Include="DatosDAL\VotoDAL.cs" />
+    <Compile Include="Datos\ConexionDB.cs" />
+    <Compile Include="Datos\PlanchaDAL.cs" />
+    <Compile Include="Datos\ReportesDAL.cs" />
+    <Compile Include="Datos\UsuarioDAL.cs" />
+    <Compile Include="Datos\VotoDAL.cs" />
     <Compile Include="Entidades\Candidato.cs" />
     <Compile Include="Entidades\Padron.cs" />
     <Compile Include="Entidades\Plancha.cs" />
@@ -93,14 +94,26 @@
     <Compile Include="InterfazUsuario\FormVotacion.Designer.cs">
       <DependentUpon>FormVotacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="NegocioBLL\PlanchaBLL.cs" />
-    <Compile Include="NegocioBLL\ReportesBLL.cs" />
-    <Compile Include="NegocioBLL\UsuarioBLL.cs" />
-    <Compile Include="NegocioBLL\VotacionBLL.cs" />
+    <Compile Include="Negocio\PlanchaBLL.cs" />
+    <Compile Include="Negocio\ReportesBLL.cs" />
+    <Compile Include="Negocio\UsuarioBLL.cs" />
+    <Compile Include="Negocio\VotacionBLL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\Seguridad.cs" />
     <Compile Include="Utilidades\Validaciones.cs" />
+    <EmbeddedResource Include="InterfazUsuario\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfazUsuario\FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfazUsuario\FormReportes.resx">
+      <DependentUpon>FormReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfazUsuario\FormVotacion.resx">
+      <DependentUpon>FormVotacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
