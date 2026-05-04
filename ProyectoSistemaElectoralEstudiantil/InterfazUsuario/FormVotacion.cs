@@ -1,7 +1,7 @@
 ﻿using ProyectoSistemaElectoralEstudiantil.Datos;
 using ProyectoSistemaElectoralEstudiantil.Entidades;
+using ProyectoSistemaElectoralEstudiantil.Negocio;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
@@ -9,7 +9,6 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
     public partial class FormVotacion : Form
     {
         private Usuario usuarioActual;
-        private int votacionId = 1; // Ejemplo: ID de la votación activa
 
         public FormVotacion(Usuario usuario)
         {
@@ -19,11 +18,8 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
 
         private void FormVotacion_Load(object sender, EventArgs e)
         {
-            // Cargar las planchas desde la BD
             PlanchaDAL dal = new PlanchaDAL();
-            List<Plancha> planchas = dal.GetAll();
-
-            dgvPlanchas.DataSource = planchas;
+            dgvPlanchas.DataSource = dal.GetAll();
         }
 
         private void btnVotar_Click(object sender, EventArgs e)
@@ -34,34 +30,38 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
                 return;
             }
 
-            int planchaId = (int)dgvPlanchas.CurrentRow.Cells["Id"].Value;
+            int planchaId = Convert.ToInt32(dgvPlanchas.CurrentRow.Cells["Id"].Value);
+            VotacionBLL bll = new VotacionBLL();
 
-            VotoDAL dal = new VotoDAL();
             try
             {
-                dal.InsertarVoto(usuarioActual.Id, planchaId, votacionId);
-                MessageBox.Show("¡Voto registrado con éxito!");
+                bll.RegistrarVoto(usuarioActual.Id, planchaId);
+                usuarioActual.VecesQueHaVotado++;
+                MessageBox.Show("✅ ¡Voto registrado con éxito!");
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al votar: " + ex.Message);
+                MessageBox.Show($"Error al registrar el voto: {ex.Message}");
             }
         }
 
         private void btnVotoNulo_Click(object sender, EventArgs e)
         {
-            VotoDAL dal = new VotoDAL();
+            VotacionBLL bll = new VotacionBLL();
+
             try
             {
-                dal.InsertarVoto(usuarioActual.Id, null, votacionId);
-                MessageBox.Show("¡Voto nulo registrado!");
+                bll.RegistrarVoto(usuarioActual.Id, 0, true); // voto nulo
+                usuarioActual.VecesQueHaVotado++;
+                MessageBox.Show("⚠️ Voto nulo registrado.");
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al votar: " + ex.Message);
+                MessageBox.Show($"Error al registrar el voto: {ex.Message}");
             }
         }
     }
 }
+

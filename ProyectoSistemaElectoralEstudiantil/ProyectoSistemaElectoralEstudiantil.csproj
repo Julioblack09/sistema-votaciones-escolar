@@ -58,6 +58,12 @@
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Entidades\Votacion.cs" />
     <Compile Include="Entidades\Voto.cs" />
+    <Compile Include="InterfazUsuario\FormDatosGenerales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfazUsuario\FormDatosGenerales.Designer.cs">
+      <DependentUpon>FormDatosGenerales.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterfazUsuario\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,14 +108,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\Seguridad.cs" />
     <Compile Include="Utilidades\Validaciones.cs" />
+    <EmbeddedResource Include="InterfazUsuario\FormDatosGenerales.resx">
+      <DependentUpon>FormDatosGenerales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterfazUsuario\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterfazUsuario\FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InterfazUsuario\FormPlanchas.resx">
+      <DependentUpon>FormPlanchas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterfazUsuario\FormReportes.resx">
       <DependentUpon>FormReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfazUsuario\FormUsuarios.resx">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InterfazUsuario\FormVotacion.resx">
       <DependentUpon>FormVotacion.cs</DependentUpon>
@@ -138,4 +153,8 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

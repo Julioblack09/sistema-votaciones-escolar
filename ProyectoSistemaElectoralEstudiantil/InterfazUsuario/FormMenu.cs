@@ -1,7 +1,8 @@
-﻿using System;
+﻿using ProyectoSistemaElectoralEstudiantil.Entidades;
+using ProyectoSistemaElectoralEstudiantil.Datos;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
-using ProyectoSistemaElectoralEstudiantil.Entidades;
-using System.Drawing; // Para cambiar colores del label
 
 namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
 {
@@ -9,7 +10,7 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
     {
         private Usuario usuarioActual;
 
-        // 🔹 Constructor que recibe el usuario desde el login
+        // Constructor que recibe el usuario desde el login
         public FormMenu(Usuario usuario)
         {
             InitializeComponent();
@@ -18,16 +19,13 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            // Mostrar bienvenida en el label
+            // Mensaje de bienvenida
             lblBienvenida.Text = $"Bienvenido {usuarioActual.Nombre} ({usuarioActual.Rol})";
 
-            // Opcional: cambiar color según rol
-            if (usuarioActual.Rol == "Admin")
-                lblBienvenida.ForeColor = Color.Red;
-            else
-                lblBienvenida.ForeColor = Color.Blue;
+            // Color según rol
+            lblBienvenida.ForeColor = usuarioActual.Rol == "Admin" ? Color.Red : Color.Blue;
 
-            // 🔐 Control de roles
+            // Control de roles
             if (usuarioActual.Rol != "Admin")
             {
                 btnUsuarios.Enabled = false;
@@ -44,34 +42,48 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
         // 📋 Datos Generales
         private void btnDatos_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Módulo de Datos Generales");
+            FormDatosGenerales frm = new FormDatosGenerales();
+            frm.ShowDialog();
         }
 
         // 🪪 Planchas
         private void btnPlanchas_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Módulo de Planchas");
+            FormPlanchas frm = new FormPlanchas();
+            frm.ShowDialog();
         }
 
         // 👥 Usuarios
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Módulo de Usuarios");
+            FormUsuarios frm = new FormUsuarios();
+            frm.ShowDialog();
         }
 
-        // 📊 Panel / Resultados
+        // 📊 Panel de Resultados
         private void btnPanel_Click(object sender, EventArgs e)
         {
-            FormReportes reportes = new FormReportes();
-            reportes.ShowDialog();
+            if (usuarioActual.Rol == "Votante" && usuarioActual.VecesQueHaVotado == 0)
+            {
+                MessageBox.Show("Debes votar antes de poder ver los resultados.");
+                return;
+            }
+
+            FormReportes frm = new FormReportes();
+            frm.ShowDialog();
         }
 
         // 🗳️ Votaciones
         private void btnVotaciones_Click(object sender, EventArgs e)
         {
-            FormVotacion votacion = new FormVotacion(usuarioActual);
-            votacion.ShowDialog();
+            FormVotacion frm = new FormVotacion(usuarioActual);
+            frm.ShowDialog();
+
+            // Refrescar usuario después de votar
+            UsuarioDAL dal = new UsuarioDAL();
+            usuarioActual = dal.ObtenerUsuarioPorId(usuarioActual.Id);
         }
     }
 }
+
 

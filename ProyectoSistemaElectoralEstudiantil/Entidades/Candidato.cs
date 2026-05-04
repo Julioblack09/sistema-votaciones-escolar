@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProyectoSistemaElectoralEstudiantil.Entidades
+﻿namespace ProyectoSistemaElectoralEstudiantil.Entidades
 {
-    internal class Candidato
+    public class Candidato
     {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public int IdPlancha { get; set; } // Relación con la plancha
     }
 }
+

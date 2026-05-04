@@ -18,6 +18,7 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
             ReportesDAL dal = new ReportesDAL();
             DataTable resultados = dal.ObtenerResultados();
 
+            // Mostrar resultados en el DataGridView
             dgvResultados.DataSource = resultados;
 
             // Calcular totales
@@ -30,10 +31,12 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
 
             // Configurar gráfico circular
             chartResultados.Series.Clear();
-            Series serie = new Series("Resultados");
-            serie.ChartType = SeriesChartType.Pie;
-            serie.ChartArea = "ChartArea1";   // ✅ asignar área
-            serie.Legend = "Legend1";         // ✅ asignar leyenda
+            Series serie = new Series("Resultados")
+            {
+                ChartType = SeriesChartType.Pie,
+                ChartArea = "ChartArea1",
+                Legend = "Legend1"
+            };
 
             foreach (DataRow row in resultados.Rows)
             {
@@ -43,8 +46,8 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
             }
 
             chartResultados.Series.Add(serie);
-
         }
     }
 }
+
 

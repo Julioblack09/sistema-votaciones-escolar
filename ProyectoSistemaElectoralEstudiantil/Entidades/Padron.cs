@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProyectoSistemaElectoralEstudiantil.Entidades
+﻿namespace ProyectoSistemaElectoralEstudiantil.Entidades
 {
-    internal class Padron
+    public class Padron
     {
+        public int Id { get; set; }
+        public int IdUsuario { get; set; }
+        public bool HaVotado { get; set; }
     }
 }
+

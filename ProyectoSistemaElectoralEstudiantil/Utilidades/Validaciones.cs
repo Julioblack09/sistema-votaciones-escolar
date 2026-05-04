@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProyectoSistemaElectoralEstudiantil.Utilidades
+﻿namespace ProyectoSistemaElectoralEstudiantil.Utilidades
 {
-    internal class Validaciones
+    public static class Validaciones
     {
+        public static bool EsTextoValido(string texto)
+        {
+            return !string.IsNullOrWhiteSpace(texto);
+        }
+
+        public static bool EsNumeroValido(string numero)
+        {
+            return int.TryParse(numero, out _);
+        }
     }
 }

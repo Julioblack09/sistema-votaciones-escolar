@@ -1,12 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProyectoSistemaElectoralEstudiantil.Datos;
+using System.Data;
 
-namespace ProyectoSistemaElectoralEstudiantil.NegocioBLL
+namespace ProyectoSistemaElectoralEstudiantil.Negocio
 {
-    internal class PlanchaBLL
+    public class PlanchaBLL
     {
+        PlanchaDAL dal = new PlanchaDAL();
+
+        public DataTable ObtenerPlanchas()
+        {
+            return dal.GetAll();
+        }
+
+        public void InsertarPlancha(string nombre, string descripcion)
+        {
+            dal.InsertarPlancha(nombre, descripcion);
+        }
+
+        public void EditarPlancha(int id, string nombre, string descripcion)
+        {
+            dal.EditarPlancha(id, nombre, descripcion);
+        }
+
+        public void EliminarPlancha(int id)
+        {
+            dal.EliminarPlancha(id);
+        }
     }
 }
+

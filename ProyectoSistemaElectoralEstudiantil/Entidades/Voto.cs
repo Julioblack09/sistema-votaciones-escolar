@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProyectoSistemaElectoralEstudiantil.Entidades
 {
-    internal class Voto
+    public class Voto
     {
+        public int Id { get; set; }
+        public int IdUsuario { get; set; }
+        public int IdPlancha { get; set; }
+        public int IdVotacion { get; set; }   // ✅ propiedad que faltaba
+        public DateTime Fecha { get; set; }
+        public bool EsNulo { get; set; }
     }
 }
