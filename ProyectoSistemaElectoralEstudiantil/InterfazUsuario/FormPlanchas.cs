@@ -1,5 +1,6 @@
 ﻿using ProyectoSistemaElectoralEstudiantil.Negocio;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
@@ -15,10 +16,52 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
         {
             CargarPlanchas();
 
-            // Opcional: configurar el DataGridView
+            // Configuración del DataGridView compacto
             dgvPlanchas.ReadOnly = true;
             dgvPlanchas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPlanchas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPlanchas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvPlanchas.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvPlanchas.RowTemplate.Height = 22;
+
+            dgvPlanchas.BackgroundColor = Color.White;
+            dgvPlanchas.DefaultCellStyle.BackColor = Color.White;
+            dgvPlanchas.DefaultCellStyle.ForeColor = Color.Black;
+            dgvPlanchas.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+
+            dgvPlanchas.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245);
+            dgvPlanchas.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(21, 101, 192);
+            dgvPlanchas.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvPlanchas.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvPlanchas.EnableHeadersVisualStyles = false;
+
+            // Estilo de labels
+            lblNombre.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            lblNombre.ForeColor = Color.Black;
+            lblDescripcion.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            lblDescripcion.ForeColor = Color.Black;
+
+            // Estilo de TextBox
+            txtNombre.Font = new Font("Segoe UI", 10);
+            txtNombre.BackColor = Color.White;
+            txtDescripcion.Font = new Font("Segoe UI", 10);
+            txtDescripcion.BackColor = Color.White;
+
+            // Estilo de botones
+            btnAgregar.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnAgregar.BackColor = Color.FromArgb(46, 125, 50);
+            btnAgregar.ForeColor = Color.White;
+
+            btnEditar.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnEditar.BackColor = Color.FromArgb(21, 101, 192);
+            btnEditar.ForeColor = Color.White;
+
+            btnEliminar.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnEliminar.BackColor = Color.FromArgb(198, 40, 40);
+            btnEliminar.ForeColor = Color.White;
+
+            btnCerrar.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btnCerrar.BackColor = Color.FromArgb(66, 66, 66);
+            btnCerrar.ForeColor = Color.White;
         }
 
         private void CargarPlanchas()
@@ -26,7 +69,6 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
             PlanchaBLL bll = new PlanchaBLL();
             dgvPlanchas.DataSource = bll.ObtenerPlanchas();
 
-            // Ajustar encabezados si existen las columnas
             if (dgvPlanchas.Columns["Id"] != null)
                 dgvPlanchas.Columns["Id"].HeaderText = "Código";
             if (dgvPlanchas.Columns["Nombre"] != null)

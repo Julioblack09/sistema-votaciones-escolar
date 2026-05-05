@@ -35,9 +35,10 @@
             // 
             // btnVotaciones
             // 
-            this.btnVotaciones.Location = new System.Drawing.Point(65, 90);
+            this.btnVotaciones.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVotaciones.Location = new System.Drawing.Point(69, 143);
             this.btnVotaciones.Name = "btnVotaciones";
-            this.btnVotaciones.Size = new System.Drawing.Size(121, 44);
+            this.btnVotaciones.Size = new System.Drawing.Size(148, 95);
             this.btnVotaciones.TabIndex = 0;
             this.btnVotaciones.Text = "Votaciones";
             this.btnVotaciones.UseVisualStyleBackColor = true;
@@ -45,9 +46,10 @@
             // 
             // btnPanel
             // 
-            this.btnPanel.Location = new System.Drawing.Point(229, 90);
+            this.btnPanel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPanel.Location = new System.Drawing.Point(264, 143);
             this.btnPanel.Name = "btnPanel";
-            this.btnPanel.Size = new System.Drawing.Size(121, 44);
+            this.btnPanel.Size = new System.Drawing.Size(148, 95);
             this.btnPanel.TabIndex = 1;
             this.btnPanel.Text = "Panel de Resultados";
             this.btnPanel.UseVisualStyleBackColor = true;
@@ -55,9 +57,10 @@
             // 
             // btnUsuarios
             // 
-            this.btnUsuarios.Location = new System.Drawing.Point(401, 90);
+            this.btnUsuarios.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.Location = new System.Drawing.Point(457, 143);
             this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(121, 44);
+            this.btnUsuarios.Size = new System.Drawing.Size(148, 95);
             this.btnUsuarios.TabIndex = 2;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = true;
@@ -65,9 +68,10 @@
             // 
             // btnPlanchas
             // 
-            this.btnPlanchas.Location = new System.Drawing.Point(65, 217);
+            this.btnPlanchas.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlanchas.Location = new System.Drawing.Point(69, 283);
             this.btnPlanchas.Name = "btnPlanchas";
-            this.btnPlanchas.Size = new System.Drawing.Size(121, 44);
+            this.btnPlanchas.Size = new System.Drawing.Size(148, 95);
             this.btnPlanchas.TabIndex = 3;
             this.btnPlanchas.Text = "Planchas Electorales";
             this.btnPlanchas.UseVisualStyleBackColor = true;
@@ -75,9 +79,10 @@
             // 
             // btnDatos
             // 
-            this.btnDatos.Location = new System.Drawing.Point(229, 217);
+            this.btnDatos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDatos.Location = new System.Drawing.Point(264, 283);
             this.btnDatos.Name = "btnDatos";
-            this.btnDatos.Size = new System.Drawing.Size(121, 44);
+            this.btnDatos.Size = new System.Drawing.Size(148, 95);
             this.btnDatos.TabIndex = 4;
             this.btnDatos.Text = "Datos Generales";
             this.btnDatos.UseVisualStyleBackColor = true;
@@ -85,9 +90,10 @@
             // 
             // btnCerrarsesion
             // 
-            this.btnCerrarsesion.Location = new System.Drawing.Point(401, 217);
+            this.btnCerrarsesion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarsesion.Location = new System.Drawing.Point(457, 283);
             this.btnCerrarsesion.Name = "btnCerrarsesion";
-            this.btnCerrarsesion.Size = new System.Drawing.Size(121, 44);
+            this.btnCerrarsesion.Size = new System.Drawing.Size(148, 95);
             this.btnCerrarsesion.TabIndex = 5;
             this.btnCerrarsesion.Text = "Cerrar sesión";
             this.btnCerrarsesion.UseVisualStyleBackColor = true;
@@ -96,16 +102,17 @@
             // lblBienvenida
             // 
             this.lblBienvenida.AutoSize = true;
+            this.lblBienvenida.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBienvenida.Location = new System.Drawing.Point(65, 30);
             this.lblBienvenida.Name = "lblBienvenida";
-            this.lblBienvenida.Size = new System.Drawing.Size(0, 16);
+            this.lblBienvenida.Size = new System.Drawing.Size(0, 23);
             this.lblBienvenida.TabIndex = 6;
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 350);
+            this.ClientSize = new System.Drawing.Size(732, 474);
             this.Controls.Add(this.lblBienvenida);
             this.Controls.Add(this.btnCerrarsesion);
             this.Controls.Add(this.btnDatos);
@@ -118,6 +125,7 @@
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

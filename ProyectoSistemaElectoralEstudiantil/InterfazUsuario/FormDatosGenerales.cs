@@ -1,5 +1,6 @@
 ﻿using ProyectoSistemaElectoralEstudiantil.Negocio;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
@@ -30,7 +31,25 @@ namespace ProyectoSistemaElectoralEstudiantil.InterfazUsuario
             lblPlanchaGanadora.Text = $"Plancha ganadora: {planchaGanadora}";
 
             dgvParticipantes.DataSource = reportes.ObtenerParticipantes();
+
+            // Estilo del DataGridView más compacto
+            dgvParticipantes.BackgroundColor = Color.White;
+            dgvParticipantes.DefaultCellStyle.BackColor = Color.White;
+            dgvParticipantes.DefaultCellStyle.ForeColor = Color.Black;
+            dgvParticipantes.DefaultCellStyle.Font = new Font("Segoe UI", 9); // más pequeño
+
+            dgvParticipantes.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245);
+            dgvParticipantes.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(21, 101, 192);
+            dgvParticipantes.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvParticipantes.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvParticipantes.EnableHeadersVisualStyles = false;
+
+            // Ajustes de tamaño
+            dgvParticipantes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvParticipantes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvParticipantes.RowTemplate.Height = 22; // filas más compactas
         }
+
     }
 }
 
